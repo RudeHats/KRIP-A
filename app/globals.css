@@ -37,7 +37,7 @@
   --sidebar-accent-foreground: #e2e8f0;
   --sidebar-border: rgba(148, 163, 184, 0.2);
   --sidebar-ring: #3b82f6;
-  
+
   /* AQI Colors */
   --aqi-good: #22c55e;
   --aqi-moderate: #eab308;
@@ -98,6 +98,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -105,10 +106,13 @@
 
 /* Custom animations for AQI Dashboard */
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.6;
     filter: blur(20px);
   }
+
   50% {
     opacity: 1;
     filter: blur(30px);
@@ -120,9 +124,11 @@
     transform: translateY(-100%);
     opacity: 0;
   }
+
   60% {
     transform: translateY(10%);
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -133,6 +139,7 @@
   0% {
     stroke-dashoffset: 1000;
   }
+
   100% {
     stroke-dashoffset: 0;
   }
@@ -143,6 +150,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -165,6 +173,21 @@
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(148, 163, 184, 0.1);
+  animation: neon-pulse 3s infinite ease-in-out;
+}
+
+@keyframes neon-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 4px rgba(59, 130, 246, 0.1), inset 0 0 2px rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5), inset 0 0 8px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.6);
+  }
 }
 
 .glass-card-hover:hover {
@@ -174,9 +197,17 @@
 
 /* Button animations */
 @keyframes button-press {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.95); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes ripple {
@@ -184,6 +215,7 @@
     transform: scale(0);
     opacity: 0.5;
   }
+
   100% {
     transform: scale(4);
     opacity: 0;
@@ -194,6 +226,7 @@
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -204,12 +237,15 @@
     transform: scale(0.3);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.05);
   }
+
   70% {
     transform: scale(0.9);
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -217,48 +253,114 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
 
 @keyframes blink {
-  0%, 90%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); }
+
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0.1);
+  }
 }
 
 @keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
 }
 
 @keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-3deg); }
-  75% { transform: rotate(3deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-3deg);
+  }
+
+  75% {
+    transform: rotate(3deg);
+  }
 }
 
 @keyframes cough {
-  0%, 100% { transform: translateX(0) rotate(0); }
-  10% { transform: translateX(-2px) rotate(-1deg); }
-  20% { transform: translateX(2px) rotate(1deg); }
-  30% { transform: translateX(-2px) rotate(-1deg); }
-  40% { transform: translateX(2px) rotate(1deg); }
-  50% { transform: translateX(0) rotate(0); }
+
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  10% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  30% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  40% {
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  50% {
+    transform: translateX(0) rotate(0);
+  }
 }
 
 @keyframes sweat {
-  0%, 100% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(10px); }
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
 
 @keyframes worry {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(0.8); }
+
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(0.8);
+  }
 }
 
 .animate-button-press:active {
@@ -274,12 +376,10 @@
 }
 
 .animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -306,6 +406,7 @@
     opacity: 0;
     transform: translateY(20px) scale(0.9);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -318,10 +419,14 @@
 
 /* Loading dots */
 @keyframes loading-dots {
-  0%, 80%, 100% {
+
+  0%,
+  80%,
+  100% {
     transform: scale(0);
     opacity: 0.5;
   }
+
   40% {
     transform: scale(1);
     opacity: 1;
@@ -332,15 +437,31 @@
   animation: loading-dots 1.4s ease-in-out infinite both;
 }
 
-.loading-dot:nth-child(1) { animation-delay: -0.32s; }
-.loading-dot:nth-child(2) { animation-delay: -0.16s; }
-.loading-dot:nth-child(3) { animation-delay: 0s; }
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0s;
+}
 
 /* Typing indicator */
 @keyframes typing {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
 }
 
 .typing-dot {
@@ -369,18 +490,23 @@
 
 /* Animated Background */
 @keyframes particle-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) translateX(0) rotate(0deg);
     opacity: 0.3;
   }
+
   25% {
     transform: translateY(-30px) translateX(10px) rotate(90deg);
     opacity: 0.6;
   }
+
   50% {
     transform: translateY(-60px) translateX(-10px) rotate(180deg);
     opacity: 0.4;
   }
+
   75% {
     transform: translateY(-30px) translateX(15px) rotate(270deg);
     opacity: 0.5;
@@ -388,23 +514,30 @@
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
 
 @keyframes aurora {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: translateY(0) scale(1);
   }
+
   33% {
     opacity: 0.5;
     transform: translateY(-20px) scale(1.1);
   }
+
   66% {
     opacity: 0.4;
     transform: translateY(10px) scale(0.95);
@@ -415,6 +548,7 @@
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(100%);
   }
@@ -424,6 +558,7 @@
   0% {
     top: -10%;
   }
+
   100% {
     top: 110%;
   }
@@ -448,9 +583,11 @@
     transform: translateY(-100%);
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(100%);
     opacity: 0;
@@ -458,10 +595,13 @@
 }
 
 @keyframes neural-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.5;
   }
+
   50% {
     transform: scale(1.2);
     opacity: 1;
@@ -472,6 +612,7 @@
   0% {
     stroke-dashoffset: 100;
   }
+
   100% {
     stroke-dashoffset: 0;
   }
@@ -481,15 +622,19 @@
   0% {
     width: 0%;
   }
+
   100% {
     width: 100%;
   }
 }
 
 @keyframes grid-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.1;
   }
+
   50% {
     opacity: 0.3;
   }
