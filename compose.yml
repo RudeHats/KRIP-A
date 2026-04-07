@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Kripa — Full Stack Docker Compose
+# Usage:
+#   cp .env.example .env    # fill in your API keys
+#   docker compose up --build
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Next.js Frontend ───────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_WAQI_TOKEN: ${NEXT_PUBLIC_WAQI_TOKEN}
+    container_name: kripa-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── Python AI Backend ──────────────────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: kripa-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env           # GROQ_API_KEY, WAQI_API_TOKEN, HF_TOKEN
+    restart: unless-stopped
+
+networks:
+  default:
+    name: kripa-network
